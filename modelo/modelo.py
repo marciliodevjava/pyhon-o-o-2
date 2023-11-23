@@ -46,8 +46,12 @@ class Serie:
         self.__temporadas = temporadas
         self.__likes = int(0)
 
-    def contador_likes(self):
+    def dar_likes(self):
         self.__likes += 1
+
+    @property
+    def likes(self):
+        return self.__likes
 
     def informacao(self):
         print("")
@@ -56,6 +60,7 @@ class Serie:
         print(f"Temporadas: {self.__temporadas}")
         print("Likes: {}".format(self.__likes))
         return ""
+
 
 
 vingadores = Filme("Vingadores - Guerra Infinita", 2021, 2.35)
@@ -69,7 +74,7 @@ print(vingadores.informacao())
 
 atlanta = Serie('Atlanta', 2018, 2)
 print(atlanta.informacao())
-atlanta.contador_likes()
+atlanta.dar_likes()
 print(atlanta.informacao())
-atlanta.contador_likes()
+atlanta.dar_likes()
 print(atlanta.informacao())
