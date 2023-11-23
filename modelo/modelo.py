@@ -18,9 +18,9 @@ class Filme:
 
     @nome.setter
     def nome(self, nome):
-        self.__nome = nome
+        self.__nome = nome.title()
 
-    def contador_likes(self):
+    def dar_likes(self):
         self.__likes += 1
 
     def informacao(self):
@@ -30,6 +30,13 @@ class Filme:
         print("Duração? {}".format(self.__duracao))
         print("Likes: {}".format(self.__likes))
         return ""
+
+    @property
+    def likes(self):
+        return self.__likes()
+
+    def dar_likes(self):
+        self.__likes += 1
 
 class Serie:
 
@@ -54,7 +61,7 @@ class Serie:
 vingadores = Filme("Vingadores - Guerra Infinita", 2021, 2.35)
 print(vingadores.nome)
 print(vingadores.informacao())
-vingadores.contador_likes()
+vingadores.dar_likes()
 vingadores.nome = "Vingadores - Guerra Infinita II"
 print(vingadores.nome)
 print(vingadores.informacao())
