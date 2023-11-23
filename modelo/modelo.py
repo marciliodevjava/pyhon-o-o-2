@@ -1,7 +1,7 @@
 class Filme:
 
     def __init__(self, nome, ano, duracao):
-        self.__nome = str(nome)
+        self.__nome = str(nome.title())
         self.__ano = int(ano)
         self.__duracao = float(duracao)
 
@@ -22,7 +22,7 @@ class Filme:
 class Serie:
 
     def __init__(self, nome, ano, temporadas):
-        self.__nome = nome
+        self.__nome = str(nome.title())
         self.__ano = ano
         self.__temporadas = temporadas
 
