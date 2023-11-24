@@ -24,10 +24,8 @@ class Programa:
 class Filme (Programa):
 
     def __init__(self, nome, ano, duracao):
-        self._nome = str(nome.title())
-        self._ano = int(ano)
+        super().__init__(nome, ano)
         self._duracao = float(duracao)
-        self._likes = int(0)
 
     def informacao(self):
         print("")
@@ -40,10 +38,8 @@ class Filme (Programa):
 class Serie(Programa):
 
     def __init__(self, nome, ano, temporadas):
-        self._nome = str(nome.title())
-        self._ano = ano
+        super().__init__(nome, ano)
         self._temporadas = temporadas
-        self._likes = int(0)
 
     def informacao(self):
         print("")
