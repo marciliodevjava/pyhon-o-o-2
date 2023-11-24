@@ -1,26 +1,28 @@
 class Programa:
 
     def __init__(self, nome, ano):
-        self._nome = nome.title()
-        self._ano = ano
-        self._likes = 0
+        self.__nome = nome.title()
+        self.__ano = ano
+        self.__likes = 0
 
     @property
     def likes(self):
-        return self._likes
+        return self.__likes
 
     def dar_likes(self):
-        self._likes += 1
+        self.__likes += 1
 
     @property
     def nome(self):
-        return self._nome
+        return self.__nome
 
     @nome.setter
     def nome(self, nome):
-        self._nome = nome.title()
+        self.__nome = nome.title()
 
-
+    @property
+    def ano(self):
+        return self.__ano
 class Filme (Programa):
 
     def __init__(self, nome, ano, duracao):
@@ -29,10 +31,10 @@ class Filme (Programa):
 
     def informacao(self):
         print("")
-        print("Nome: {}".format(self._nome))
-        print("Ano: {}".format(self._ano))
+        print("Nome: {}".format(super().nome))
+        print("Ano: {}".format(super().ano))
         print("Duração? {}".format(self._duracao))
-        print("Likes: {}".format(self._likes))
+        print("Likes: {}".format(super().likes))
         return ""
 
 class Serie(Programa):
@@ -43,10 +45,10 @@ class Serie(Programa):
 
     def informacao(self):
         print("")
-        print("Nome: {}".format(self._nome))
-        print("Ano: {}".format(self._ano))
+        print("Nome: {}".format(super().nome))
+        print("Ano: {}".format(super().ano))
         print(f"Temporadas: {self._temporadas}")
-        print("Likes: {}".format(self._likes))
+        print("Likes: {}".format(super().likes))
         return ""
 
 
