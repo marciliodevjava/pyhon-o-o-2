@@ -23,13 +23,14 @@ class Programa:
     @property
     def ano(self):
         return self.__ano
-    
+
     def informacao(self):
         print("Nome: {}".format(self.__nome))
         print("Ano: {}".format(self.__ano))
         print("Likes: {}".format(self.__likes))
-        
-class Filme (Programa):
+
+
+class Filme(Programa):
 
     def __init__(self, nome, ano, duracao):
         super().__init__(nome, ano)
@@ -39,6 +40,7 @@ class Filme (Programa):
         super().informacao()
         print("Duração: {}".format(self._duracao))
         return ""
+
 
 class Serie(Programa):
 
@@ -63,7 +65,6 @@ atlanta.dar_likes()
 print(atlanta.informacao())
 atlanta.dar_likes()
 print(atlanta.informacao())
-
 
 filme_e_serie = [vingadores, atlanta]
 
