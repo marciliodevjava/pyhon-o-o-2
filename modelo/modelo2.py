@@ -55,21 +55,27 @@ class Serie(Programa):
 
 
 vingadores = Filme("Vingadores - Guerra Infinita", 2021, 2.35)
-print(vingadores.informacao())
+vingadores.informacao()
+print('')
 vingadores.dar_likes()
-print(vingadores.informacao())
+vingadores.informacao()
+print('')
 
 atlanta = Serie('Atlanta', 2018, 2)
-print(atlanta.informacao())
+atlanta.informacao()
+print('')
 atlanta.dar_likes()
-print(atlanta.informacao())
+atlanta.informacao()
+print('')
 atlanta.dar_likes()
-print(atlanta.informacao())
+atlanta.informacao()
+print('')
 
 filme_e_serie = [vingadores, atlanta]
 
 for programa in filme_e_serie:
-    print(programa.informacao())
+    programa.informacao()
+    print('')
 
 # Utilizando hasattr
 for programa in filme_e_serie:
@@ -90,3 +96,4 @@ for programa in filme_e_serie:
         detalhe = programa._temporadas
 
     print(f'Nome: {programa.nome} - Ano: {programa.ano} - {nome} {detalhe} - Likes: {programa.likes}')
+    print('')
