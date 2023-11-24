@@ -37,7 +37,7 @@ class Filme (Programa):
 
     def informacao(self):
         super().informacao()
-        print("Duração? {}".format(self._duracao))
+        print("Duração: {}".format(self._duracao))
         return ""
 
 class Serie(Programa):
@@ -69,3 +69,23 @@ filme_e_serie = [vingadores, atlanta]
 
 for programa in filme_e_serie:
     print(programa.informacao())
+
+# Utilizando hasattr
+for programa in filme_e_serie:
+    detalhes = programa._duracao if hasattr(programa, '_duracao') else programa._temporadas
+    print(f'Nome: {programa.nome} - Ano: {programa.ano} - {detalhes} - Likes: {programa.likes}')
+    print('')
+
+# Utilizando hasattr
+for programa in filme_e_serie:
+    nome = ''
+    detalhe = ''
+    if hasattr(programa, "_duracao"):
+        nome = 'Duração:'
+        detalhe = programa._duracao
+
+    if hasattr(programa, '_temporadas'):
+        nome = 'Temporadas:'
+        detalhe = programa._temporadas
+
+    print(f'Nome: {programa.nome} - Ano: {programa.ano} - {nome} {detalhe} - Likes: {programa.likes}')
