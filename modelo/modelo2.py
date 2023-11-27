@@ -24,10 +24,8 @@ class Programa:
     def ano(self):
         return self.__ano
 
-    def informacao(self):
-        print("Nome: {}".format(self.__nome))
-        print("Ano: {}".format(self.__ano))
-        print("Likes: {}".format(self.__likes))
+    def __str__(self):
+        return "Nome: {} - Ano: {} - Likes: {}".format(self.__nome, self.__ano, self.__likes)
 
 
 class Filme(Programa):
@@ -36,10 +34,9 @@ class Filme(Programa):
         super().__init__(nome, ano)
         self._duracao = float(duracao)
 
-    def informacao(self):
-        super().informacao()
-        print("Duração: {}".format(self._duracao))
-        return ""
+    def __str__(self):
+        super().__str__()
+        return "Nome: {} - Ano: {} - Likes: {} - Duração: {}".format(super().nome, super().ano, super().likes, self._duracao)
 
 
 class Serie(Programa):
@@ -48,33 +45,31 @@ class Serie(Programa):
         super().__init__(nome, ano)
         self._temporadas = temporadas
 
-    def informacao(self):
-        super().informacao()
-        print("Temporadas: {}".format(self._temporadas))
-        return ""
+    def __str__(self):
+        return "Nome: {} - Ano: {} - Likes: {} - Temporadas: {}".format(super().nome, super().ano, super().likes, self._temporadas)
 
 
 vingadores = Filme("Vingadores - Guerra Infinita", 2021, 2.35)
-vingadores.informacao()
+print(vingadores)
 print('')
 vingadores.dar_likes()
-vingadores.informacao()
+print(vingadores)
 print('')
 
 atlanta = Serie('Atlanta', 2018, 2)
-atlanta.informacao()
+print(atlanta)
 print('')
 atlanta.dar_likes()
-atlanta.informacao()
+print(atlanta)
 print('')
 atlanta.dar_likes()
-atlanta.informacao()
+print(atlanta)
 print('')
 
 filme_e_serie = [vingadores, atlanta]
 
 for programa in filme_e_serie:
-    programa.informacao()
+    programa
     print('')
 
 # Utilizando hasattr
