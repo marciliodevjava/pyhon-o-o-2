@@ -48,10 +48,21 @@ class Serie(Programa):
     def __str__(self):
         return "Nome: {} - Ano: {} - Likes: {} - Temporadas: {}".format(super().nome, super().ano, super().likes, self._temporadas)
 
-class Playlist(list):
+class Playlist:
     def __init__(self, nome, programas):
         self.__nome = nome
-        super().__init__(programas)
+        self.__programas = list(programas)
+
+    @property
+    def tamanho(self):
+        return len(self.__programas)
+
+    def list_programas(self):
+        return self.__programas
+
+    @property
+    def listagem(self):
+        return self.__programas
 
 
 
@@ -107,7 +118,9 @@ print('')
 
 playlist_fim_de_semana = Playlist('Fim de semana', filme_e_serie)
 
-print(f'Tamanha da Playlist: {len(playlist_fim_de_semana)}')
+print(f'Tamanha da Playlist: {playlist_fim_de_semana.tamanho}')
 
-for fds in playlist_fim_de_semana:
+for fds in playlist_fim_de_semana.list_programas():
     print(fds)
+
+print(f'Tem a serie Demolidor: {demolidor in playlist_fim_de_semana.list_programas()}')
