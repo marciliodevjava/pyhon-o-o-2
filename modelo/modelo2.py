@@ -48,6 +48,12 @@ class Serie(Programa):
     def __str__(self):
         return "Nome: {} - Ano: {} - Likes: {} - Temporadas: {}".format(super().nome, super().ano, super().likes, self._temporadas)
 
+class Playlist(list):
+    def __init__(self, nome, programas):
+        self.__nome = nome
+        super().__init__(programas)
+
+
 
 vingadores = Filme("Vingadores - Guerra Infinita", 2021, 2.35)
 print(vingadores)
@@ -66,7 +72,11 @@ atlanta.dar_likes()
 print(atlanta)
 print('')
 
-filme_e_serie = [vingadores, atlanta]
+tmep = Filme("Todo mundo em pânico", 19991, 100)
+tmep.dar_likes()
+demolidor = Serie("Demolidor", 2016, 2)
+demolidor.dar_likes()
+filme_e_serie = [vingadores, atlanta, tmep, demolidor]
 
 for programa in filme_e_serie:
     programa
@@ -76,7 +86,8 @@ for programa in filme_e_serie:
 for programa in filme_e_serie:
     detalhes = programa._duracao if hasattr(programa, '_duracao') else programa._temporadas
     print(f'Nome: {programa.nome} - Ano: {programa.ano} - {detalhes} - Likes: {programa.likes}')
-    print('')
+
+print('')
 
 # Utilizando hasattr
 for programa in filme_e_serie:
@@ -91,4 +102,10 @@ for programa in filme_e_serie:
         detalhe = programa._temporadas
 
     print(f'Nome: {programa.nome} - Ano: {programa.ano} - {nome} {detalhe} - Likes: {programa.likes}')
-    print('')
+
+print('')
+
+playlist_fim_de_semana = Playlist('Fim de semana', filme_e_serie)
+
+for fds in playlist_fim_de_semana:
+    print(fds)
