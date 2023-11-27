@@ -1,5 +1,8 @@
 class Funcionario:
 
+    def __init__(self, nome):
+        self.__nome = nome
+
     def registra_horas(self, horas):
         print("Horas registradas")
 
@@ -10,10 +13,11 @@ class Funcionario:
 class Alura(Funcionario):
 
     def __init__(self, nome):
-        self.__nome = str(nome.title())
+        super().__init__(nome.title())
 
+    @property
     def nome(self):
-        return self.__nome
+        return self._Funcionario__nome
 
     def mostrar_tarefas(self):
         return 'Fez muita coisa, Alurete'
@@ -25,30 +29,39 @@ class Alura(Funcionario):
 class Caelum(Funcionario):
 
     def __init__(self, nome):
-        self.__nome = str(nome.title())
+        super().__init__(nome.title())
 
+    @property
     def nome(self):
-        return self.__nome
+        return self._Funcionario__nome
 
     def mostrar_tarefas(self):
         return 'Fez muita coisa, Calunete'
 
     def buscar_curso_do_mes(self, mes=None):
-       return 'Mostrando cursos {}'.format(mes) if mes else 'Mostrando cursos desses mês'
+       return 'Mostrando cursos {}'.format(mes) if mes else 'Mostrando cursos desse mês'
 
+
+class Hipster:
+    def __str__(self):
+        return f'Hipster, {self.nome}'
 
 class Junior(Alura):
     pass
 
-
 class Pleno(Alura, Caelum):
+    pass
+
+class Senior(Alura, Caelum, Hipster):
     pass
 
 
 jose = Junior('José')
 luan = Pleno('Luan')
 pedro = Pleno('Pedro')
+joao = Senior('João')
 
-print(f'Nome: {jose.nome()} ', jose.buscar_perguntas_sem_resposta())
-print(f'Nome: {pedro.nome()} ', pedro.buscar_curso_do_mes())
-print(f'Nome: {luan.nome()}', luan.mostrar_tarefas())
+print(f'Nome: {jose.nome}', jose.buscar_perguntas_sem_resposta())
+print(f'Nome: {pedro.nome} ', pedro.buscar_curso_do_mes())
+print(f'Nome: {luan.nome}', luan.mostrar_tarefas())
+print(joao)
