@@ -107,5 +107,7 @@ print('')
 
 playlist_fim_de_semana = Playlist('Fim de semana', filme_e_serie)
 
+print(f'Tamanha da Playlist: {len(playlist_fim_de_semana)}')
+
 for fds in playlist_fim_de_semana:
     print(fds)
