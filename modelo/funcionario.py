@@ -39,18 +39,21 @@ class Caelum(Funcionario):
         return 'Fez muita coisa, Calunete'
 
     def buscar_curso_do_mes(self, mes=None):
-       return 'Mostrando cursos {}'.format(mes) if mes else 'Mostrando cursos desse mês'
+        return 'Mostrando cursos {}'.format(mes) if mes else 'Mostrando cursos desse mês'
 
 
 class Hipster:
     def __str__(self):
         return f'Hipster, {self.nome}'
 
+
 class Junior(Alura):
     pass
 
+
 class Pleno(Alura, Caelum):
     pass
+
 
 class Senior(Alura, Caelum, Hipster):
     pass
